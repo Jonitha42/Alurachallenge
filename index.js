@@ -118,12 +118,13 @@ encriptar.addEventListener("click", (event) => {
   if (validarCampo(input.value) == false) {
     console.log(validarCampo(input.value));
     document.getElementById("message-card").style.display = "flex";
+    document.getElementById("message-answer").style.display = "none";
     input.value = "";
 
   }
   else if(validarCampo(input.value) == true) { 
     encriptar.onclick = encriptarFn();
-    document.getElementById("message-card").style.display = "none";
+    //document.getElementById("message-card").style.display = "none";
     input.value = "";
   }
 
