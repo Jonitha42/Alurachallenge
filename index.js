@@ -93,12 +93,18 @@ function validarCampo(campo) {
   }
 }
 
+
+
+encriptar.onclick = encriptarFn;
+
+desencriptar.onclick = desencriptarFn;
+
+
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
   validarCampo(input.value);
 
   input.value = "";
-  input.value.focus();
 });
 
 desencriptar.addEventListener("click", (event) => {
@@ -106,14 +112,8 @@ desencriptar.addEventListener("click", (event) => {
   validarCampo(input.value);
 
   input.value = "";
-  input.value.focus();
+
 });
-
-encriptar.onclick = encriptarFn;
-
-desencriptar.onclick = desencriptarFn;
-
-
 
 // FUNCION COPIAR EL MENSAJE
 function copiarFn() {
