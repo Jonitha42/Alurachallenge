@@ -38,8 +38,9 @@ function encriptarFn() {
     fraseEncriptadaarr.push(letra);
   }
 
+  frase = fraseEncriptadaarr.join("");
+  
   answer.innerHTML = frase;
-
 
   copiar.style.display = "block";
 
@@ -96,8 +97,8 @@ function validarCampo(campo) {
     input.classList.remove("correcto");
     document.querySelector(".text-error").style.display = "block";
     
-  document.getElementById("message-card").style.display = "flex";
-  document.getElementById("message-answer").style.display = "none";
+    document.getElementById("message-answer").style.display = "none";
+    document.getElementById("message-card").style.display = "flex";
 
   }
 
@@ -109,9 +110,10 @@ function validarCampo(campo) {
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
 
+
   validarCampo(input.value)
 
-  encriptar.onclick = encriptarFn;
+  encriptar.onclick = encriptarFn();
   
   })
 
