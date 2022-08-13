@@ -91,10 +91,7 @@ function validarCampo(campo) {
     input.classList.remove("correcto");
     document.querySelector(".text-error").style.display = "block";
   }
-  if (input.value= ""){
-    input.classList.remove("error");
-    input.classList.remove("correcto");
-  }
+  
 }
 
 encriptar.addEventListener("click", (event) => {
@@ -103,6 +100,11 @@ encriptar.addEventListener("click", (event) => {
 
   input.innerHTML = "";
 
+  if (input.innerHTML= ""){
+    input.classList.remove("error");
+    input.classList.remove("correcto");
+  }
+
 });
 
 desencriptar.addEventListener("click", (event) => {
@@ -110,6 +112,11 @@ desencriptar.addEventListener("click", (event) => {
   validarCampo(input.value);
 
   input.innerHTML = "";
+
+  if (input.innerHTML= ""){
+    input.classList.remove("error");
+    input.classList.remove("correcto");
+  }
 });
 
 encriptar.onclick = encriptarFn;
