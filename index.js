@@ -80,9 +80,9 @@ function desencriptarFn() {
 
 
 function validarCampo(campo) {
-  let regEx = /\b[a-z]/g;
+  let regEx = /^[a-z]/gm;
 
-  if (regEx.test(campo) == true) {
+  if (regEx.test(campo)) {
     input.classList.remove("error");
     input.classList.add("correcto");
     document.querySelector(".text-error").style.display = "none";
@@ -96,11 +96,17 @@ function validarCampo(campo) {
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
   validarCampo(input.value);
+
+  input.value = "";
+  input.value.focus();
 });
 
 desencriptar.addEventListener("click", (event) => {
   event.preventDefault();
   validarCampo(input.value);
+
+  input.value = "";
+  input.value.focus();
 });
 
 encriptar.onclick = encriptarFn;
