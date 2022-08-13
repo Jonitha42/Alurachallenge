@@ -1,9 +1,10 @@
-let input = document.querySelector("input");
+let input = document.getElementById("input");
 let encriptar = document.getElementById("encriptar");
 let desencriptar = document.getElementById("desencriptar");
 let copiar = document.getElementById("btn-copy");
 let answer = document.getElementById("answer");
-let aleatorio = document.getElementById("aleatorio");
+
+
 
 
 
@@ -36,14 +37,15 @@ function encriptarFn() {
     }
     fraseEncriptadaarr.push(letra);
   }
-  frase = fraseEncriptadaarr.join("");
+
   answer.innerHTML = frase;
+
+
   copiar.style.display = "block";
 
   document.getElementById("message-card").style.display = "none";
   document.getElementById("message-answer").style.display = "flex";
 
-  return fraseEncriptadaarr;
 }
 
 // FUNCION PARA DESENCRIPTAR EL MENSAJE
@@ -69,7 +71,6 @@ function desencriptarFn() {
     }
     contador++;
   }
-  // console.log(frase);
   answer.innerHTML = frase;
   copiar.style.display = "block";
 
@@ -77,51 +78,56 @@ function desencriptarFn() {
   document.getElementById("message-answer").style.display = "flex";
 }
 
-
-
 function validarCampo(campo) {
+
   let regEx = /^[a-z]/gm;
 
   if (regEx.test(campo)) {
-    input.classList.remove("error");
+
     input.classList.add("correcto");
+
+    input.classList.remove("error");
+
     document.querySelector(".text-error").style.display = "none";
+
+ 
   } else {
     input.classList.add("error");
     input.classList.remove("correcto");
     document.querySelector(".text-error").style.display = "block";
+    
+  document.getElementById("message-card").style.display = "flex";
+  document.getElementById("message-answer").style.display = "none";
+
   }
-  
+
+  return campo;
+
 }
+
 
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
-  validarCampo(input.value);
 
-  input.innerHTML = "";
+  validarCampo(input.value)
 
-  if (input.innerHTML= ""){
-    input.classList.remove("error");
-    input.classList.remove("correcto");
-  }
+  encriptar.onclick = encriptarFn;
+  
+  })
 
-});
+
 
 desencriptar.addEventListener("click", (event) => {
   event.preventDefault();
+
   validarCampo(input.value);
 
-  input.innerHTML = "";
+  desencriptar.onclick = desencriptarFn;
 
-  if (input.innerHTML= ""){
-    input.classList.remove("error");
-    input.classList.remove("correcto");
-  }
 });
 
-encriptar.onclick = encriptarFn;
 
-desencriptar.onclick = desencriptarFn;
+
 
 
 
