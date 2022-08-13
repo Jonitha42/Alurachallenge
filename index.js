@@ -91,29 +91,35 @@ function validarCampo(campo) {
     input.classList.remove("correcto");
     document.querySelector(".text-error").style.display = "block";
   }
+  if (input.value= ""){
+    input.classList.remove("error");
+    input.classList.remove("correcto");
+  }
 }
-
-
-
-encriptar.onclick = encriptarFn;
-
-desencriptar.onclick = desencriptarFn;
-
 
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
   validarCampo(input.value);
 
-  input.value = "";
+  input.innerHTML = "";
+
 });
 
 desencriptar.addEventListener("click", (event) => {
   event.preventDefault();
   validarCampo(input.value);
 
-  input.value = "";
-
+  input.innerHTML = "";
 });
+
+encriptar.onclick = encriptarFn;
+
+desencriptar.onclick = desencriptarFn;
+
+
+
+
+
 
 // FUNCION COPIAR EL MENSAJE
 function copiarFn() {
