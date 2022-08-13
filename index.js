@@ -124,7 +124,7 @@ desencriptar.addEventListener("click", (event) => {
 
   validarCampo(input.value);
 
-  desencriptar.onclick = desencriptarFn;
+  desencriptar.onclick = desencriptarFn();
 
 });
 
