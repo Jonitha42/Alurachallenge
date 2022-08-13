@@ -44,6 +44,7 @@ function encriptarFn() {
 
   copiar.style.display = "block";
 
+  
   document.getElementById("message-card").style.display = "none";
   document.getElementById("message-answer").style.display = "flex";
 
@@ -81,7 +82,9 @@ function desencriptarFn() {
 
 function validarCampo(campo) {
 
-  let regEx = /^[a-z]/gm;
+  //let regEx = /[a-z]/gm;
+  let regEx = /^[a-z0-9]+$/gm;
+  let bandera = false;
 
   if (regEx.test(campo)) {
 
@@ -91,18 +94,18 @@ function validarCampo(campo) {
 
     document.querySelector(".text-error").style.display = "none";
 
+    bandera = true;
+
  
   } else {
     input.classList.add("error");
     input.classList.remove("correcto");
     document.querySelector(".text-error").style.display = "block";
-    
-    document.getElementById("message-answer").style.display = "none";
-    document.getElementById("message-card").style.display = "flex";
 
+    bandera = false;
   }
 
-  return campo;
+  return bandera;
 
 }
 
@@ -110,11 +113,12 @@ function validarCampo(campo) {
 encriptar.addEventListener("click", (event) => {
   event.preventDefault();
 
+  validarCampo(input.value);
 
-  validarCampo(input.value)
+  console.log(validarCampo(input.value));
 
   encriptar.onclick = encriptarFn();
-  
+
   })
 
 
