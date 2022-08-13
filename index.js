@@ -83,7 +83,7 @@ function desencriptarFn() {
 function validarCampo(campo) {
 
   //let regEx = /[a-z]/gm;
-  let regEx = /^[a-z]+$/gm;
+  let regEx = /^[a-z][^A-Z]+$/gm;
   let bandera = false;
 
   if (regEx.test(campo)) {
