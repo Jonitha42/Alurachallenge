@@ -83,7 +83,7 @@ function desencriptarFn() {
 function validarCampo(campo) {
 
   //let regEx = /[a-z]/gm;
-  let regEx = /^[a-z0-9]+$/gm;
+  let regEx = /^[a-z]+$/gm;
   let bandera = false;
 
   if (regEx.test(campo)) {
@@ -115,9 +115,18 @@ encriptar.addEventListener("click", (event) => {
 
   validarCampo(input.value);
 
-  console.log(validarCampo(input.value));
+  if (validarCampo(input.value) == false) {
+    console.log(validarCampo(input.value));
+    document.getElementById("message-card").style.display = "flex";
+    input.value = "";
 
-  encriptar.onclick = encriptarFn();
+  }
+  else if(validarCampo(input.value) == true) { 
+    encriptar.onclick = encriptarFn();
+    document.getElementById("message-card").style.display = "none";
+    input.value = "";
+  }
+
 
   })
 
@@ -128,7 +137,18 @@ desencriptar.addEventListener("click", (event) => {
 
   validarCampo(input.value);
 
-  desencriptar.onclick = desencriptarFn();
+  if (validarCampo(input.value) == false) {
+    console.log(validarCampo(input.value));
+    document.getElementById("message-card").style.display = "flex";
+    input.value = "";
+
+  }
+  else if(validarCampo(input.value) == true) { 
+    desencriptar.onclick = desencriptarFn();
+    document.getElementById("message-card").style.display = "none";
+    input.value = "";
+  }
+
 
 });
 
