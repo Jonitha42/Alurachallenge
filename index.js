@@ -88,7 +88,7 @@ function validarCampo(campo) {
 
   if (regEx.test(campo)) {
 
-    input.classList.add("correcto");
+
 
     input.classList.remove("error");
 
@@ -99,7 +99,7 @@ function validarCampo(campo) {
  
   } else {
     input.classList.add("error");
-    input.classList.remove("correcto");
+
     document.querySelector(".text-error").style.display = "block";
 
     bandera = false;
@@ -120,12 +120,13 @@ encriptar.addEventListener("click", (event) => {
     document.getElementById("message-card").style.display = "flex";
     document.getElementById("message-answer").style.display = "none";
     input.value = "";
+    input.focus();
 
   }
   else if(validarCampo(input.value) == true) { 
     encriptar.onclick = encriptarFn();
-    //document.getElementById("message-card").style.display = "none";
     input.value = "";
+    input.focus();
   }
 
 
